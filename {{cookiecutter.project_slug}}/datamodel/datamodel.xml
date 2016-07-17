@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataModelInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   <Attributes>
+    <AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true">
+      <Rules>
+        <Rule Name="Setting" />
+        <Rule Name="Available For Abstract Resources" />
+      </Rules>
+    </AttributeInfo>
+    <AttributeInfo Name="Serial Number" Type="String" DefaultValue="" IsReadOnly="true">
+      <Rules>
+        <Rule Name="Setting" />
+        <Rule Name="Available For Abstract Resources" />
+      </Rules>
+    </AttributeInfo>
+    <AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true">
+      <Rules>
+        <Rule Name="Setting" />
+        <Rule Name="Available For Abstract Resources" />
+      </Rules>
+    </AttributeInfo>
+    <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true">
+      <Rules>
+        <Rule Name="Setting" />
+        <Rule Name="Available For Abstract Resources" />
+      </Rules>
+    </AttributeInfo>
     <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false">
       <Rules>
         <Rule Name="Configuration" />
@@ -11,79 +35,12 @@
         <Rule Name="Configuration" />
       </Rules>
     </AttributeInfo>
-    <AttributeInfo Name="Enable Password" Type="Password" DefaultValue="3M3u7nkDzxWb0aJ/IZYeWw==" IsReadOnly="false">
+    <AttributeInfo Name="SNMP Port" Type="String" DefaultValue="161" IsReadOnly="false">
       <Rules>
         <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Power Management" Type="Boolean" DefaultValue="False" IsReadOnly="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="System Name" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Contact Name" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="OS Version" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Version" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Location" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Backup Location" Type="String" DefaultValue="" IsReadOnly="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-	<AttributeInfo xsi:type="LookupAttributeDetails" Name="Protocol Type" Type="Lookup" DefaultValue="Transparent" IsReadOnly="true" IsCommand="false">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-       <Rule Name="Constant Capability" />
-      </Rules>
-            <LookupValues>
-                <LookupValue NumericValue="0" StringValue="Transparent"/>
-            </LookupValues>
-        </AttributeInfo>
-    <AttributeInfo Name="Model" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-      	<Rule Name="Setting" />
-	       <Rule Name="Available For Abstract Resources" />
       </Rules>
     </AttributeInfo>
     <AttributeInfo Name="SNMP Read Community" Type="String" DefaultValue="" IsReadOnly="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="SNMP Write Community" Type="String" DefaultValue="" IsReadOnly="false">
       <Rules>
         <Rule Name="Configuration" />
       </Rules>
@@ -108,272 +65,51 @@
         <Rule Name="Configuration" />
       </Rules>
     </AttributeInfo>
-    <AttributeInfo Name="Sessions Concurrency Limit" Type="Numeric" DefaultValue="1" IsReadOnly="false">
+    <AttributeInfo Name="SNMP Write Community" Type="String" DefaultValue="" IsReadOnly="false">
       <Rules>
         <Rule Name="Configuration" />
       </Rules>
     </AttributeInfo>
-    <AttributeInfo Name="Console Server IP Address" Type="String" DefaultValue="" IsReadOnly="false">
+    <AttributeInfo Name="Firmware Version" Type="String" DefaultValue="" IsReadOnly="true">
       <Rules>
         <Rule Name="Configuration" />
+        <Rule Name="Setting" />
       </Rules>
     </AttributeInfo>
-    <AttributeInfo Name="Console User" Type="String" DefaultValue="" IsReadOnly="false">
+    <AttributeInfo Name="Vendor" Type="String" DefaultValue="" IsReadOnly="true">
       <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Console Password" Type="Password" DefaultValue="3M3u7nkDzxWb0aJ/IZYeWw==" IsReadOnly="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Console Port" Type="Numeric" DefaultValue="0" IsReadOnly="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo xsi:type="LookupAttributeDetails" Name="CLI Connection Type" Type="Lookup" DefaultValue="Auto" IsReadOnly="false" IsCommand="false">
-      <Rules>
-        <Rule Name="Configuration" />
-      </Rules>
-            <LookupValues>
-                <LookupValue NumericValue="0" StringValue="Auto"/>
-                <LookupValue NumericValue="1" StringValue="Console"/>
-                <LookupValue NumericValue="2" StringValue="SSH"/>
-                <LookupValue NumericValue="3" StringValue="Telnet"/>
-                <LookupValue NumericValue="4" StringValue="TCP"/>
-            </LookupValues>
-        </AttributeInfo>
-    <AttributeInfo Name="Serial Number" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="MAC Address" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="L2 Protocol Type" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-       <Rule Name="Setting" />
-       <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="IPv4 Address" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="IPv6 Address" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Port Description" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Bandwidth" Type="Numeric" DefaultValue="0" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="MTU" Type="Numeric" DefaultValue="0" IsReadOnly="true">
-      <Rules Override="false">
-      	<Rule Name="Setting" />
-	      <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo xsi:type="LookupAttributeDetails" Name="Duplex" Type="Lookup" DefaultValue="Half" IsReadOnly="true">
-      <Rules Override="false">
         <Rule Name="Setting" />
         <Rule Name="Available For Abstract Resources" />
       </Rules>
+    </AttributeInfo>
+        <AttributeInfo Name="Sessions Concurrency Limit" Type="Numeric" DefaultValue="1" IsReadOnly="false">
+      <Rules>
+        <Rule Name="Configuration" />
+      </Rules>
+    </AttributeInfo>
+    <AttributeInfo xsi:type="LookupAttributeDetails" Name="CLI Connection Type" Type="Lookup" DefaultValue="Auto" IsReadOnly="false">
+      <Rules>
+        <Rule Name="Configuration" />
+      </Rules>
       <LookupValues>
-        <LookupValue NumericValue="2" StringValue="Half" />
-        <LookupValue NumericValue="3" StringValue="Full" />
+        <LookupValue NumericValue="0" StringValue="Auto" />
+        <LookupValue NumericValue="1" StringValue="Console" />
+        <LookupValue NumericValue="2" StringValue="SSH" />
+        <LookupValue NumericValue="3" StringValue="Telnet" />
+        <LookupValue NumericValue="4" StringValue="TCP" />
       </LookupValues>
-    </AttributeInfo>
-    <AttributeInfo Name="Adjacent" Type="String" DefaultValue="" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Auto Negotiation" Type="Boolean" DefaultValue="False" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
-    </AttributeInfo>
-    <AttributeInfo Name="Associated Ports" Type="String" DefaultValue="" Description="in the format &quot;[portResourceName],...&quot;, for example &quot;GE0-0-0-1,GE-0-0-0-2&quot;" IsReadOnly="true">
-      <Rules Override="false">
-	     <Rule Name="Setting" />
-	     <Rule Name="Available For Abstract Resources" />
-      </Rules>
     </AttributeInfo>
   </Attributes>
   <ResourceFamilies>
-    <ResourceFamily Name="Switch" Description="" IsSearchable="true" IsPowerSwitch="true">
+    <ResourceFamily Name="Power Socket" IsConnectable="true" IsLockedByDefault="true" Description="Sockets are devices that allow electrically operated equipment to be connected to the primary alternating current (AC) power supply." IsSearchable="true" ResourceType="Resource">
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-      </Models>
-      <Categories />
-    </ResourceFamily>
-    
-    <ResourceFamily Name="Chassis" Description="" IsSearchable="true">
-		<AttachedAttributes />
-		<AttributeValues />
-      <Models>
-        <ResourceModel Name="Generic Chassis" Description="" SupportsConcurrentCommands="false">
-		<AttachedAttributes>
-          <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-            <AllowedValues />
-          </AttachedAttribute>
-          <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-            <AllowedValues />
-          </AttachedAttribute>
-        </AttachedAttributes>
-        <AttributeValues>
-          <AttributeValue Name="Model" Value="" />
-          <AttributeValue Name="Serial Number" Value="" />
-        </AttributeValues>
-			<ParentModels>
-				<ParentModelName>Cisco NXOS Switch</ParentModelName>
-			</ParentModels>
-			<Drivers />
-			<Scripts />
-        </ResourceModel>
-      </Models>
-      <Categories />
-    </ResourceFamily>
-    <ResourceFamily Name="Module" Description="" IsSearchable="true">
-		<AttachedAttributes />
-		<AttributeValues />
-      <Models>
-        <ResourceModel Name="Generic Module" Description="" SupportsConcurrentCommands="false">
-		<AttachedAttributes>
-          <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-            <AllowedValues />
-          </AttachedAttribute>
-          <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-            <AllowedValues />
-          </AttachedAttribute>
-          <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-            <AllowedValues />
-          </AttachedAttribute>
-        </AttachedAttributes>
-        <AttributeValues>
-          <AttributeValue Name="Serial Number" Value="" />
-	  <AttributeValue Name="Version" Value="" />
-          <AttributeValue Name="Model" Value="" />
-        </AttributeValues>
-			<ParentModels>
-				<ParentModelName>Generic Chassis</ParentModelName>
-			</ParentModels>
-			<Drivers />
-			<Scripts />
-        </ResourceModel>
-      </Models>
-      <Categories />
-    </ResourceFamily>
-    <ResourceFamily Name="Port" IsSearchable="true" IsConnectable="true" IsLockedByDefault="true">
-          	<AttachedAttributes />
-			<AttributeValues />
-		<Models>
-        <ResourceModel Name="Generic Port" Description="" SupportsConcurrentCommands="false">
-			<AttachedAttributes>
-			<AttachedAttribute Name="MAC Address" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="L2 Protocol Type" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="IPv4 Address" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="IPv6 Address" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Port Description" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Bandwidth" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="MTU" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Duplex" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Adjacent" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Auto Negotiation" IsOverridable="true" IsLocal="true">
-			<AllowedValues />
-			</AttachedAttribute>
-			<AttachedAttribute Name="Protocol Type" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
-			</AttachedAttribute>
-		</AttachedAttributes>
-		<AttributeValues>
-			<AttributeValue Name="MAC Address" Value="" />
-			<AttributeValue Name="L2 Protocol Type" Value="" />
-			<AttributeValue Name="IPv4 Address" Value="" />
-			<AttributeValue Name="IPv6 Address" Value="" />
-			<AttributeValue Name="Port Description" Value="" />
-			<AttributeValue Name="Bandwidth" Value="0" />
-			<AttributeValue Name="MTU" Value="0" />
-			<AttributeValue Name="Duplex" Value="Half" />
-			<AttributeValue Name="Protocol Type" Value="Transparent" />
-			<AttributeValue Name="Adjacent" Value="" />
-			<AttributeValue Name="Auto Negotiation" Value="False" />
-		</AttributeValues>
-			<ParentModels>
-				<ParentModelName>Generic Chassis</ParentModelName>
-				<ParentModelName>Generic Module</ParentModelName>
-				<ParentModelName>Generic Sub Module</ParentModelName>
-			</ParentModels>
-			<Drivers />
-			<Scripts />
-        </ResourceModel>
-      </Models>
-      <Categories />
-    </ResourceFamily>
-    <ResourceFamily Name="Sub Module" Description="" IsSearchable="true">
-		<AttachedAttributes />
-		<AttributeValues />
-	  <Models>
-        <ResourceModel Name="Generic Sub Module" Description="" SupportsConcurrentCommands="false">
-	<AttachedAttributes>
-            <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-	    </AttachedAttribute>
-            <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-        </AttachedAttributes>
-        <AttributeValues>
-            <AttributeValue Name="Serial Number" Value="" />
-	    <AttributeValue Name="Version" Value="" />
-            <AttributeValue Name="Model" Value="" />
-        </AttributeValues>
+        <ResourceModel Name="Generic Power Socket" Description="" SupportsConcurrentCommands="false">
+          <AttachedAttributes />
+          <AttributeValues />
           <ParentModels>
-            <ParentModelName>Generic Module</ParentModelName>
+            <ParentModelName>Raritan PDU</ParentModelName>
           </ParentModels>
           <Drivers />
           <Scripts />
@@ -381,33 +117,38 @@
       </Models>
       <Categories />
     </ResourceFamily>
-    <ResourceFamily Name="Power Port" IsConnectable="true" IsLockedByDefault="true" Description="" IsSearchable="true">
-        <AttachedAttributes />
-		<AttributeValues />
-		<Models>
+    <ResourceFamily Name="Power Port" IsConnectable="true" IsLockedByDefault="true" Description="" IsSearchable="true" ResourceType="Resource">
+      <AttachedAttributes>
+        <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Port Description" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+      </AttachedAttributes>
+      <AttributeValues>
+        <AttributeValue Name="Model" Value="" />
+        <AttributeValue Name="Serial Number" Value="" />
+        <AttributeValue Name="Version" Value="" />
+        <AttributeValue Name="Port Description" Value="" />
+      </AttributeValues>
+      <Models>
         <ResourceModel Name="Generic Power Port" Description="" SupportsConcurrentCommands="false">
-		<AttachedAttributes>
-            <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="Serial Number" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="Port Description" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-        </AttachedAttributes>
-        <AttributeValues>
+          <AttachedAttributes />
+          <AttributeValues>
             <AttributeValue Name="Model" Value="" />
             <AttributeValue Name="Serial Number" Value="" />
-	    <AttributeValue Name="Version" Value="" />
+            <AttributeValue Name="Version" Value="" />
             <AttributeValue Name="Port Description" Value="" />
-        </AttributeValues>
-	    <ParentModels>
-            <ParentModelName>Generic Chassis</ParentModelName>
+          </AttributeValues>
+          <ParentModels>
+            <ParentModelName>Generic Power Managed Resource</ParentModelName>
           </ParentModels>
           <Drivers />
           <Scripts />
@@ -415,38 +156,111 @@
       </Models>
       <Categories />
     </ResourceFamily>
-    <ResourceFamily Name="Port Channel" IsConnectable="true" IsLockedByDefault="true" Description="" IsSearchable="true">
-	    <AttachedAttributes />
-		<AttributeValues />
+    <ResourceFamily Name="PDU" Description="A power distribution unit (PDU) or mains distribution unit (MDU) is a device fitted with multiple outputs designed to distribute electric power, especially to racks of computers and networking equipment located within a data center." IsPowerSwitch="true" IsSearchable="true" ResourceType="Resource">
+      <AttachedAttributes>
+        <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP Port" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP Read Community" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP V3 Password" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP V3 Private Key" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP V3 User" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP Version" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="SNMP Write Community" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Firmware Version" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Model" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Vendor" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="Sessions Concurrency Limit" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+        <AttachedAttribute Name="CLI Connection Type" IsOverridable="true" IsLocal="true">
+          <AllowedValues />
+        </AttachedAttribute>
+      </AttachedAttributes>
+      <AttributeValues>
+        <AttributeValue Name="User" Value="" />
+        <AttributeValue Name="Password" Value="3M3u7nkDzxWb0aJ/IZYeWw==" />
+        <AttributeValue Name="SNMP Port" Value="161" />
+        <AttributeValue Name="SNMP Read Community" Value="" />
+        <AttributeValue Name="SNMP V3 Password" Value="" />
+        <AttributeValue Name="SNMP V3 Private Key" Value="" />
+        <AttributeValue Name="SNMP V3 User" Value="" />
+        <AttributeValue Name="SNMP Version" Value="" />
+        <AttributeValue Name="SNMP Write Community" Value="" />
+        <AttributeValue Name="Firmware Version" Value="" />
+        <AttributeValue Name="Model" Value="" />
+        <AttributeValue Name="Vendor" Value="" />
+        <AttributeValue Name="Sessions Concurrency Limit" Value="1" />
+        <AttributeValue Name="CLI Connection Type" Value="Auto" />
+      </AttributeValues>
       <Models>
-        <ResourceModel Name="Generic Port Channel" Description="" SupportsConcurrentCommands="false">
-		<AttachedAttributes>
-            <AttachedAttribute Name="Associated Ports" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
+        <ResourceModel Name="Raritan PDU" Description="" SupportsConcurrentCommands="true">
+          <AttachedAttributes>
+            <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
             </AttachedAttribute>
-            <AttachedAttribute Name="IPv4 Address" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
+            <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
             </AttachedAttribute>
-            <AttachedAttribute Name="IPv6 Address" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
+            <AttachedAttribute Name="SNMP Read Community" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
             </AttachedAttribute>
-            <AttachedAttribute Name="Port Description" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
-            </AttachedAttribute>
-			<AttachedAttribute Name="Protocol Type" IsOverridable="true" IsLocal="true">
-				<AllowedValues />
-            </AttachedAttribute>
-        </AttachedAttributes>
-        <AttributeValues>
-            <AttributeValue Name="Associated Ports" Value="" />
-            <AttributeValue Name="IPv4 Address" Value="" />
-            <AttributeValue Name="IPv6 Address" Value="" />
-            <AttributeValue Name="Port Description" Value="" />
-			<AttributeValue Name="Protocol Type" Value="Transparent" />
-        </AttributeValues>
-          <ParentModels>
-            <ParentModelName>Cisco NXOS Switch</ParentModelName>
-          </ParentModels>
+          </AttachedAttributes>
+          <AttributeValues>
+            <AttributeValue Name="Password" Value="AY/mFGg7SGa5NSjbcv3sDw==" />
+            <AttributeValue Name="User" Value="admin" />
+            <AttributeValue Name="SNMP Read Community" Value="public" />
+            <AttributeValue Name="SNMP Port" Value="161" />
+            <AttributeValue Name="SNMP V3 Password" Value="" />
+            <AttributeValue Name="SNMP V3 Private Key" Value="" />
+            <AttributeValue Name="SNMP V3 User" Value="" />
+            <AttributeValue Name="SNMP Version" Value="" />
+            <AttributeValue Name="SNMP Write Community" Value="" />
+            <AttributeValue Name="Firmware Version" Value="" />
+            <AttributeValue Name="Model" Value="" />
+            <AttributeValue Name="Vendor" Value="" />
+          </AttributeValues>
+          <ParentModels />
+          <Drivers>
+            <DriverName>Raritan PDU Driver</DriverName>
+          </Drivers>
+          <Scripts />
+        </ResourceModel>
+      </Models>
+      <Categories />
+    </ResourceFamily>
+    <ResourceFamily Name="Power Managed Resource" Description="Device whose power supply is managed by an external source (such as a PDU.)" IsSearchable="true" ResourceType="Resource">
+      <AttachedAttributes />
+      <AttributeValues />
+      <Models>
+        <ResourceModel Name="Generic Power Managed Resource" Description="" SupportsConcurrentCommands="false">
+          <AttachedAttributes />
+          <AttributeValues />
+          <ParentModels />
           <Drivers />
           <Scripts />
         </ResourceModel>
@@ -454,6 +268,8 @@
       <Categories />
     </ResourceFamily>
   </ResourceFamilies>
-  <DriverDescriptors />
+  <DriverDescriptors>
+    <DriverDescriptor Name="Raritan PDU Driver" Description="Manages Raritan PDUs" DriverType="PythonDriver" />
+  </DriverDescriptors>
   <ScriptDescriptors />
 </DataModelInfo>
