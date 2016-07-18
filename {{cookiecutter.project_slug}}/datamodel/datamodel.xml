@@ -109,7 +109,7 @@
           <AttachedAttributes />
           <AttributeValues />
           <ParentModels>
-            <ParentModelName>Raritan PDU</ParentModelName>
+            <ParentModelName>{{ cookiecutter.model_name }}</ParentModelName>
           </ParentModels>
           <Drivers />
           <Scripts />
@@ -218,38 +218,6 @@
         <AttributeValue Name="CLI Connection Type" Value="Auto" />
       </AttributeValues>
       <Models>
-        <ResourceModel Name="Raritan PDU" Description="" SupportsConcurrentCommands="true">
-          <AttachedAttributes>
-            <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-            <AttachedAttribute Name="SNMP Read Community" IsOverridable="true" IsLocal="true">
-              <AllowedValues />
-            </AttachedAttribute>
-          </AttachedAttributes>
-          <AttributeValues>
-            <AttributeValue Name="Password" Value="AY/mFGg7SGa5NSjbcv3sDw==" />
-            <AttributeValue Name="User" Value="admin" />
-            <AttributeValue Name="SNMP Read Community" Value="public" />
-            <AttributeValue Name="SNMP Port" Value="161" />
-            <AttributeValue Name="SNMP V3 Password" Value="" />
-            <AttributeValue Name="SNMP V3 Private Key" Value="" />
-            <AttributeValue Name="SNMP V3 User" Value="" />
-            <AttributeValue Name="SNMP Version" Value="" />
-            <AttributeValue Name="SNMP Write Community" Value="" />
-            <AttributeValue Name="Firmware Version" Value="" />
-            <AttributeValue Name="Model" Value="" />
-            <AttributeValue Name="Vendor" Value="" />
-          </AttributeValues>
-          <ParentModels />
-          <Drivers>
-            <DriverName>Raritan PDU Driver</DriverName>
-          </Drivers>
-          <Scripts />
-        </ResourceModel>
       </Models>
       <Categories />
     </ResourceFamily>
@@ -269,7 +237,7 @@
     </ResourceFamily>
   </ResourceFamilies>
   <DriverDescriptors>
-    <DriverDescriptor Name="Raritan PDU Driver" Description="Manages Raritan PDUs" DriverType="PythonDriver" />
+    <DriverDescriptor Name="{{ cookiecutter.driver_name }}" Description="Manages Raritan PDUs" DriverType="PythonDriver" />
   </DriverDescriptors>
   <ScriptDescriptors />
 </DataModelInfo>

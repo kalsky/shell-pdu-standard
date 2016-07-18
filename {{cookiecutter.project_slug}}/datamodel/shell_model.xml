@@ -1,19 +1,41 @@
 <Shell>
-    <Family>{{ cookiecutter.family_name }}</Family>
 
     <ShellAttributes>
     </ShellAttributes>
 
-    <Models>
+    <ShellModel Family="PDU">
         <ResourceModel Name="{{ cookiecutter.model_name }}" Description="" SupportsConcurrentCommands="true">
-            <AttachedAttributes>
-            </AttachedAttributes>
-            <AttributeValues>
-            </AttributeValues>
-            <Drivers>
-                <DriverName>{{ cookiecutter.driver_name }}</DriverName>
-            </Drivers>
-            <Scripts />
+           <AttachedAttributes>
+            <AttachedAttribute Name="Password" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+            <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+            <AttachedAttribute Name="SNMP Read Community" IsOverridable="true" IsLocal="true">
+              <AllowedValues />
+            </AttachedAttribute>
+          </AttachedAttributes>
+          <AttributeValues>
+            <AttributeValue Name="Password" Value="AY/mFGg7SGa5NSjbcv3sDw==" />
+            <AttributeValue Name="User" Value="admin" />
+            <AttributeValue Name="SNMP Read Community" Value="public" />
+            <AttributeValue Name="SNMP Port" Value="161" />
+            <AttributeValue Name="SNMP V3 Password" Value="" />
+            <AttributeValue Name="SNMP V3 Private Key" Value="" />
+            <AttributeValue Name="SNMP V3 User" Value="" />
+            <AttributeValue Name="SNMP Version" Value="" />
+            <AttributeValue Name="SNMP Write Community" Value="" />
+            <AttributeValue Name="Firmware Version" Value="" />
+            <AttributeValue Name="Model" Value="" />
+            <AttributeValue Name="Vendor" Value="" />
+          </AttributeValues>
+          <ParentModels />
+          <Drivers>
+            <DriverName>{{ cookiecutter.driver_name }}</DriverName>
+          </Drivers>
+          <Scripts />
         </ResourceModel>
-    </Models>
+    </ShellModel>
 </Shell>
+
