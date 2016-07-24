@@ -69,7 +69,7 @@ The following CloudShell family rules are enabled per family in the data model:
 
 Family | Rules
 --- | ---
-PDU | Searchable
+PDU | Searchable, IsPowerSwitch
 Power Socket | Searchable, Connectable, Locked By Default
 Power Managed Device | Searchable
 Power Port | 	Searchable, Connectable, Locked By Default
@@ -112,6 +112,10 @@ SNMP V3 User | | Yes
 SNMP V3 Password | | Yes
 SNMP V3 Private Key | | Yes
 SNMP Version | Possible values – v1, v2c, v3 | Yes
+Console Server IP Address | | Yes
+Console User | | Yes
+Console Port | Attributes of type Numeric | Yes
+Console Password | Attribute of type Password | Yes
 CLI Connection Type | Attribute of type Lookup. Possible values – Auto, Console, SSH, Telnet, TCP | Yes
 Sessions Concurrency Limit | Numeric, default is 1 (no concurrency) | Yes
 
