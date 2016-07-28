@@ -142,31 +142,130 @@ Port Description | | No
 
 
 ## Commands
-Below is a list of all the commands that will be part of the standard Shell, their names and interfaces. Each PDU Shell that will be released by Quali’s engineering will include implementation for all those commands.
+Below is a list of all the commands that should be part of the Shell, their names and interfaces.
+
 When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
-Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output. The “Autoload” command has a special output on success that CloudShell reads when building the resource hierarchy. The “Save” command will return an output on success with the file name (exact syntax below).
+
+Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output.
 
 
 
-### Autoload
-Queries the devices and loads the structure and attribute values into CloudShell.
-  - SNMP Based
 
+### Get Inventory (Shell Autoload)
+```python
+get_inventory (context)
+```  
+This function queries the device, discovers it's specification and autoloads it into CloudShell. When a new resource is created, CloudShell asks the user to specify some user inputs (i.e user name & password) and then it calls the get_inventory function.
+
+The standard recommended way of communicating and discovering the device should be via SNMP protocol.
+
+
+#### Command Input
+Parameter | Data Type | Required | Description
+--- | --- | --- | ---
+context | object | CloudShell adds | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
+
+
+#### Command Output
+Parameter | Data Type | Required | Description
+--- | --- | --- | ---
+AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
+
+```python
+class AutoLoadDetails:
+    def __init__(self, resources, attributes):
+        # list[AutoLoadResource] - the list of resources (root and sub) that were discovered
+        self.resources = resources  
+
+        # list[AutoLoadAttribute] - the list of attributes of the discovered resources
+        self.attributes = attributes  
+
+
+class AutoLoadResource:
+    def __init__(self, model, name, relative_address, unique_identifier=None):
+        self.model = model
+        self.name = name
+        self.relative_address = relative_address
+        self.unique_identifier = unique_identifier
+
+
+class AutoLoadAttribute:
+    def __init__(self, relative_address, attribute_name, attribute_value):
+        self.relative_address = relative_addres
+        self.attribute_name = attribute_name
+        self.attribute_value = attribute_value
+```  
+
+
+
+## Power Commands
+  In CloudShell users can trigger a power commands directly from the power managed resource, doing that implicitly triggers the command execution on the PDU.
+
+  To enable this feature, power commands must include the 'power' tag.
+
+  ```xml
+  <Driver Name="SamplePowerDriver" Version="1.0.0" MainClass="SamplePowerDriver.SamplePowerDriver" Description="">
+    <Layout>
+      <Category Name="Power">
+        <Command Name="PowerOn" Description="" Tags="power"></Command>
+        <Command Name="PowerOff" Description="" Tags="power"></Command>
+        <Command Name="PowerCycle" Description="" Tags="power"></Command>
+      </Category>
+    </Layout>
+  </Driver>
+  ```  
 
 
 ### Power On
-Starts the power for the selected socket.
-  - This command should be tagged as “connected command”
+  ```python
+  PowerOn(self, context, ports):     
+  ```  
+  Starts the power for the selected socket.
+
+
+  #### Command Input
+  Parameter | Data Type | Required | Description
+  --- | --- | --- | ---
+  context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+  ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+
+
+  #### Command Output
+  None.
+
 
 
 ### Power Off
-Stops the power for the selected socket.
-- This command should be tagged as “connected command”
+  ```python
+   PowerOff(self, context, ports):     
+  ```    
+  Stops the power for the selected socket.
+
+  #### Command Input
+  Parameter | Data Type | Required | Description
+  --- | --- | --- | ---
+  context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+  ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+
+
+  #### Command Output
+  None.
 
 
 ### Power Cycle
+
+```python
+PowerCycle(self, context, ports, delay):     
+```  
 Stops and then starts the power for the selected socket.   - CLI based
-- This command should be tagged as “connected command”
-   - Inputs:
-     - Delay (string input)
-     Optional. If kept empty the default from the The value here should be a positive integer and defines the wait time between the power off and power on. If left empty the default from the device will be used.
+
+#### Command Input
+Parameter | Data Type | Required | Description
+--- | --- | --- | ---
+context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+delay | string | No |  Optional. If kept empty the default from the The value here should be a positive integer and defines the wait time between the power off and power on. If left empty the default from the device will be used.
+
+
+#### Command Output
+None.
