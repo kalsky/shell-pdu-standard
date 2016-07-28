@@ -141,7 +141,7 @@ Port Description | | No
 
 
 
-## Commands
+### Commands
 Below is a list of all the commands that should be part of the Shell, their names and interfaces.
 
 When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
@@ -151,7 +151,7 @@ Command outputs: On failure an exception containing the error will be thrown and
 
 
 
-### Get Inventory (Shell Autoload)
+#### Get Inventory (Shell Autoload)
 ```python
 get_inventory (context)
 ```  
@@ -160,13 +160,13 @@ This function queries the device, discovers it's specification and autoloads it 
 The standard recommended way of communicating and discovering the device should be via SNMP protocol.
 
 
-#### Command Input
+###### Input
 Parameter | Data Type | Required | Description
 --- | --- | --- | ---
 context | object | CloudShell adds | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
 
 
-#### Command Output
+###### Output
 Parameter | Data Type | Required | Description
 --- | --- | --- | ---
 AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
@@ -198,7 +198,7 @@ class AutoLoadAttribute:
 
 
 
-## Power Commands
+### Power Commands
   In CloudShell users can trigger a power commands directly from the power managed resource, doing that implicitly triggers the command execution on the PDU.
 
   To enable this feature, power commands must include the 'power' tag.
@@ -216,50 +216,50 @@ class AutoLoadAttribute:
   ```  
 
 
-### Power On
+#### Power On
   ```python
   PowerOn(self, context, ports):     
   ```  
   Starts the power for the selected socket.
 
 
-  #### Command Input
+  ###### Input
   Parameter | Data Type | Required | Description
   --- | --- | --- | ---
   context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
   ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
 
 
-  #### Command Output
+  ###### Output
   None.
 
 
 
-### Power Off
+#### Power Off
   ```python
    PowerOff(self, context, ports):     
   ```    
   Stops the power for the selected socket.
 
-  #### Command Input
+  ###### Input
   Parameter | Data Type | Required | Description
   --- | --- | --- | ---
   context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
   ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
 
 
-  #### Command Output
+  ###### Output
   None.
 
 
-### Power Cycle
+#### Power Cycle
 
 ```python
 PowerCycle(self, context, ports, delay):     
 ```  
 Stops and then starts the power for the selected socket.   - CLI based
 
-#### Command Input
+###### Input
 Parameter | Data Type | Required | Description
 --- | --- | --- | ---
 context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
@@ -267,5 +267,5 @@ ports | list[string] | system parameter | This parameter includes the power sock
 delay | string | No |  Optional. If kept empty the default from the The value here should be a positive integer and defines the wait time between the power off and power on. If left empty the default from the device will be used.
 
 
-#### Command Output
+###### Command Output
 None.
