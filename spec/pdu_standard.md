@@ -142,44 +142,37 @@ Port Description | | No
 
 
 ### Commands
-Below is a list of all the commands that should be part of the Shell, their names and interfaces.
+The following chapter describes the list of commands that needs to be supported by the shell. it includes command name, parameters and description of the functionality.
 
-When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
+- **Interface Implementation** - When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
 
-Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output.
+- **Error Handling**: Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output.
+
 
 
 
 
 #### Get Inventory (Shell Autoload)
 ```python
-get_inventory (context)
+def get_inventory (context)
 ```  
 This function queries the device, discovers it's specification and autoloads it into CloudShell. When a new resource is created, CloudShell asks the user to specify some user inputs (i.e user name & password) and then it calls the get_inventory function.
 
 The standard recommended way of communicating and discovering the device should be via SNMP protocol.
 
 
-###### Input
-Parameter | Data Type | Required | Description
---- | --- | --- | ---
-context | object | CloudShell adds | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
-
-
-###### Output
-Parameter | Data Type | Required | Description
---- | --- | --- | ---
-AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
+###### Parameters
+Input / Output | Parameter | Data Type | Required | Description
+--- | --- | --- | --- | ---
+Input | context | object | system parameter | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
+Output | AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
 
 ```python
+# Get inventory output details
 class AutoLoadDetails:
-    def __init__(self, resources, attributes):
-        # list[AutoLoadResource] - the list of resources (root and sub) that were discovered
-        self.resources = resources  
-
-        # list[AutoLoadAttribute] - the list of attributes of the discovered resources
-        self.attributes = attributes  
-
+    def __init__(self, resources, attributes):        
+        self.resources = resources    # list[AutoLoadResource]          
+        self.attributes = attributes  # list[AutoLoadAttribute]
 
 class AutoLoadResource:
     def __init__(self, model, name, relative_address, unique_identifier=None):
@@ -188,13 +181,14 @@ class AutoLoadResource:
         self.relative_address = relative_address
         self.unique_identifier = unique_identifier
 
-
 class AutoLoadAttribute:
     def __init__(self, relative_address, attribute_name, attribute_value):
         self.relative_address = relative_addres
         self.attribute_name = attribute_name
         self.attribute_value = attribute_value
 ```  
+
+
 
 
 
@@ -217,55 +211,45 @@ class AutoLoadAttribute:
 
 
 #### Power On
-  ```python
-  PowerOn(self, context, ports):     
-  ```  
-  Starts the power for the selected socket.
+```python
+def PowerOn(self, context, ports):     
+```  
+Starts the power for the selected socket.
 
 
-  ###### Input
-  Parameter | Data Type | Required | Description
-  --- | --- | --- | ---
-  context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
-  ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+###### Parameters
+Input / Output | Parameter | Data Type | Required | Description
+--- | --- | --- | --- | ---
+Input | context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+Input | ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
 
-
-  ###### Output
-  None.
 
 
 
 #### Power Off
-  ```python
-   PowerOff(self, context, ports):     
-  ```    
-  Stops the power for the selected socket.
+```python
+def PowerOff(self, context, ports):     
+```    
+Stops the power for the selected socket.
 
-  ###### Input
-  Parameter | Data Type | Required | Description
-  --- | --- | --- | ---
-  context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
-  ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+###### Parameters
+Input / Output | Parameter | Data Type | Required | Description
+--- | --- | --- | --- | ---
+Input | context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+Input | ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
 
 
-  ###### Output
-  None.
 
 
 #### Power Cycle
-
 ```python
-PowerCycle(self, context, ports, delay):     
+def PowerCycle(self, context, ports, delay):     
 ```  
 Stops and then starts the power for the selected socket.   - CLI based
 
-###### Input
-Parameter | Data Type | Required | Description
---- | --- | --- | ---
-context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
-ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
-delay | string | No |  Optional. If kept empty the default from the The value here should be a positive integer and defines the wait time between the power off and power on. If left empty the default from the device will be used.
-
-
-###### Command Output
-None.
+###### Parameters
+Input / Output | Parameter | Data Type | Required | Description
+--- | --- | --- | --- | ---
+Input | context | object | system parameter  | object of type ResourceRemoteCommandContext the details of the resource that triggered the power command.
+Input | ports | list[string] | system parameter | This parameter includes the power socket ports that the resource is connected to.
+Input | delay | string | No |  Optional. If kept empty the default from the The value here should be a positive integer and defines the wait time between the power off and power on. If left empty the default from the device will be used.
