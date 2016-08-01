@@ -144,9 +144,9 @@ Port Description | | No
 ### Commands
 The following chapter describes the list of commands that needs to be supported by the shell. it includes command name, parameters and description of the functionality.
 
-- **Interface Implementation** - When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
+**Interface Implementation** - When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
 
-- **Error Handling**: Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output.
+**Error Handling**: Command outputs: On failure an exception containing the error will be thrown and the command will be shown as failed. A failure is defined as any scenario in which the command didn’t complete its expected behavior, regardless if the issue originates from the command’s input, device or the command infrastructure itself. On success the command will just return as passed with no output.
 
 
 
@@ -192,7 +192,7 @@ class AutoLoadAttribute:
 
 
 
-### Power Commands
+## Power Commands
   In CloudShell users can trigger a power commands directly from the power managed resource, doing that implicitly triggers the command execution on the PDU.
 
   To enable this feature, power commands must include the 'power' tag.
@@ -210,7 +210,7 @@ class AutoLoadAttribute:
   ```  
 
 
-#### Power On
+### Power On
 ```python
 def PowerOn(self, context, ports):     
 ```  
@@ -226,7 +226,7 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 
 
 
-#### Power Off
+### Power Off
 ```python
 def PowerOff(self, context, ports):     
 ```    
@@ -241,7 +241,7 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 
 
 
-#### Power Cycle
+### Power Cycle
 ```python
 def PowerCycle(self, context, ports, delay):     
 ```  
