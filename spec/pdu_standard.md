@@ -141,7 +141,7 @@ Port Description | | No
 
 
 
-### Commands
+## Commands
 The following chapter describes the list of commands that needs to be supported by the shell. it includes command name, parameters and description of the functionality.
 
 **Interface Implementation** - When creating a new shell according to the standard it is OK not to implement all commands and/or implement additional command, but a command with a functionality that fits one of the predefined list commands should be implemented according to the standard.
@@ -152,9 +152,11 @@ The following chapter describes the list of commands that needs to be supported 
 
 
 
-#### Get Inventory (Shell Autoload)
+
+
+### Get Inventory (Shell Autoload)
 ```python
-def get_inventory (context)
+def get_inventory(self, context)
 ```  
 This function queries the device, discovers it's specification and autoloads it into CloudShell. When a new resource is created, CloudShell asks the user to specify some user inputs (i.e user name & password) and then it calls the get_inventory function.
 
@@ -167,26 +169,6 @@ Input / Output | Parameter | Data Type | Required | Description
 Input | context | object | system parameter | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
 Output | AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
 
-```python
-# Get inventory output details
-class AutoLoadDetails:
-    def __init__(self, resources, attributes):        
-        self.resources = resources    # list[AutoLoadResource]          
-        self.attributes = attributes  # list[AutoLoadAttribute]
-
-class AutoLoadResource:
-    def __init__(self, model, name, relative_address, unique_identifier=None):
-        self.model = model
-        self.name = name
-        self.relative_address = relative_address
-        self.unique_identifier = unique_identifier
-
-class AutoLoadAttribute:
-    def __init__(self, relative_address, attribute_name, attribute_value):
-        self.relative_address = relative_addres
-        self.attribute_name = attribute_name
-        self.attribute_value = attribute_value
-```  
 
 
 
@@ -212,7 +194,7 @@ class AutoLoadAttribute:
 
 ### Power On
 ```python
-def PowerOn(self, context, ports):     
+def PowerOn(context, ports):     
 ```  
 Starts the power for the selected socket.
 
@@ -228,7 +210,7 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 
 ### Power Off
 ```python
-def PowerOff(self, context, ports):     
+def PowerOff(context, ports):     
 ```    
 Stops the power for the selected socket.
 
@@ -243,7 +225,7 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 
 ### Power Cycle
 ```python
-def PowerCycle(self, context, ports, delay):     
+def PowerCycle(context, ports, delay):     
 ```  
 Stops and then starts the power for the selected socket.   - CLI based
 
