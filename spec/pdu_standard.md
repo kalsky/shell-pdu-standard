@@ -36,7 +36,7 @@ The dependency to cloudshell-automation-api will be to the latest Patch version 
 
 
 
-## Data Model
+## Data Model Structure
 ### Families & Models
 The PDU Shell Standard supports PDUs and the power managed device associated that is connected to the PDU.
 
@@ -87,7 +87,7 @@ Power Port | Generic Power Port | PP[Container ID][ID] | PP[Container ID][ID]
 Note: The [ID] for each sub-resource is taken from the device itself (corresponds to the names defined in the device).
 
 
-### Attributes
+## Attributes
 #### Guidelines
 - Attributes which aren’t relevant to a devices won’t be populated by the driver.
 - All attributes which aren't user-input are "read only"
@@ -154,13 +154,20 @@ The following chapter describes the list of commands that needs to be supported 
 
 
 
+
 ### Get Inventory (Shell Autoload)
 ```python
 def get_inventory(self, context)
 ```  
+###### Description
 This function queries the device, discovers it's specification and autoloads it into CloudShell. When a new resource is created, CloudShell asks the user to specify some user inputs (i.e user name & password) and then it calls the get_inventory function.
 
 The standard recommended way of communicating and discovering the device should be via SNMP protocol.
+
+
+###### Display Name
+System command, it has no display name.
+
 
 
 ###### Parameters
@@ -168,7 +175,6 @@ Input / Output | Parameter | Data Type | Required | Description
 --- | --- | --- | --- | ---
 Input | context | object | system parameter | object of type AutoLoadCommandContext which includes API connectivity details and the details of the resource including attributes that the user entered during the resource creation.
 Output | AutoLoadDetails | object | Yes | object of type AutoLoadDetails which the discovered resource structure and attributes.
-
 
 
 
@@ -196,8 +202,11 @@ Output | AutoLoadDetails | object | Yes | object of type AutoLoadDetails which t
 ```python
 def PowerOn(context, ports):     
 ```  
+###### Description
 Starts the power for the selected socket.
 
+###### Display Name
+Power On  
 
 ###### Parameters
 Input / Output | Parameter | Data Type | Required | Description
@@ -212,7 +221,11 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 ```python
 def PowerOff(context, ports):     
 ```    
+###### Description
 Stops the power for the selected socket.
+
+###### Display Name
+Power Off  
 
 ###### Parameters
 Input / Output | Parameter | Data Type | Required | Description
@@ -227,7 +240,11 @@ Input | ports | list[string] | system parameter | This parameter includes the po
 ```python
 def PowerCycle(context, ports, delay):     
 ```  
+###### Description
 Stops and then starts the power for the selected socket.   - CLI based
+
+###### Display Name
+Power Cycle
 
 ###### Parameters
 Input / Output | Parameter | Data Type | Required | Description
